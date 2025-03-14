@@ -45,9 +45,10 @@ API akan berjalan di `http://localhost:8000`
 - **Body:**
 ```json
 {
-  "nama": "John Doe",
-  "email": "johndoe@example.com",
-  "password": "password123"
+  "nama": "Admin Coyyy",
+  "email": "admin@gmail.com",
+  "password": "admin123",
+  "role": "admin"
 }
 ```
 - **Response:**
@@ -63,8 +64,8 @@ API akan berjalan di `http://localhost:8000`
 - **Body:**
 ```json
 {
-  "email": "johndoe@example.com",
-  "password": "password123"
+  "email": "admin@gmail.com",
+  "password": "admin123"
 }
 ```
 - **Response:**
@@ -82,8 +83,8 @@ API akan berjalan di `http://localhost:8000`
 - **Response:**
 ```json
 {
-  "nama": "John Doe",
-  "email": "johndoe@example.com"
+  "nama": "Admin Coyyy",
+  "email": "admin@gmail.com"
 }
 ```
 
