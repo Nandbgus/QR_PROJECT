@@ -5,14 +5,12 @@ require '../vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-// Ambil Secret Key
-$secret_key = $_ENV['SECRET_KEY'];
-
 header("Content-Type: application/json");
 
 // Tangkap request
 $method = $_SERVER['REQUEST_METHOD'];
 $action = $_GET['action'] ?? '';
+$secret_key = $_ENV['SECRET_KEY'] ?? 'default_secret_key';
 
 // Koleksi MongoDB
 $usersCollection = $db->users;
@@ -38,16 +36,18 @@ if ($method === 'POST' && $action === 'register') {
         'nama' => $data['nama'],
         'email' => $data['email'],
         'password' => $hashedPassword,
+        'role' => 'user',
         'created_at' => new MongoDB\BSON\UTCDateTime()
     ]);
 
-    echo json_encode(["message" => "Registrasi berhasil", "user_id" => (string) $insertResult->getInsertedId()]);
+    echo json_encode(["message" => "Registrasi berhasil! Silakan login.", "user_id" => (string) $insertResult->getInsertedId()]);
     exit;
 }
 
 // **Login User**
 if ($method === 'POST' && $action === 'login') {
     $data = json_decode(file_get_contents("php://input"), true);
+
 
     if (empty($data['email']) || empty($data['password'])) {
         echo json_encode(["error" => "Email dan password wajib diisi"]);
