@@ -108,5 +108,5 @@ Jika ingin berkontribusi:
 
 ---
 
-**Dibuat dengan ❤️ oleh Tim QR PROJECT**
+**Dibuat dengan suka cita cihuy uhuy**
 
